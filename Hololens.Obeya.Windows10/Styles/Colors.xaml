@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hololens.Obeya.Windows10.Styles"
+    xmlns:oxyplot="using:OxyPlot">
+    
+    <Color x:Key="ERNIGrey">#636566</Color>
+    <Color x:Key="ERNIBlue">#0054A6</Color>
+    <Color x:Key="ERNIOrange">#F0AE4E</Color>
+    <Color x:Key="ERNIGreen">#7B9C41</Color>
+    <Color x:Key="ERNIRed">#DD584A</Color>
+
+    <!-- "enables & delivers" color -->
+    <Color x:Key="ERNIBrandBlue">#335795</Color>
+
+    <Color x:Key="ERNIGreyLight">#818285</Color>
+    <Color x:Key="ERNIBlueLight">#98A5D4</Color>
+    <Color x:Key="ERNIOrangeLight">#FAD9AE</Color>
+    <Color x:Key="ERNIGreenLight">#C5CFA6</Color>
+    <Color x:Key="ERNIRedLight">#F1B7A5</Color>
+
+    <SolidColorBrush x:Key="ERNIGreyBrush" Color="{StaticResource ERNIGrey}"/>
+    <SolidColorBrush x:Key="ERNIBlueBrush" Color="{StaticResource ERNIBlue}"/>
+    <SolidColorBrush x:Key="ERNIOrangeBrush" Color="{StaticResource ERNIOrange}"/>
+    <SolidColorBrush x:Key="ERNIGreenBrush" Color="{StaticResource ERNIGreen}"/>
+    <SolidColorBrush x:Key="ERNIRedBrush" Color="{StaticResource ERNIRed}"/>
+
+    <SolidColorBrush x:Key="ERNIBrandBlueBrush" Color="{StaticResource ERNIBrandBlue}"/>
+
+    <SolidColorBrush x:Key="ERNIGreyLightBrush" Color="{StaticResource ERNIGreyLight}"/>
+    <SolidColorBrush x:Key="ERNIBlueLightBrush" Color="{StaticResource ERNIBlueLight}"/>
+    <SolidColorBrush x:Key="ERNIOrangeLightBrush" Color="{StaticResource ERNIOrangeLight}"/>
+    <SolidColorBrush x:Key="ERNIGreenLightBrush" Color="{StaticResource ERNIGreenLight}"/>
+    <SolidColorBrush x:Key="ERNIRedLightBrush" Color="{StaticResource ERNIRedLight}"/>
+</ResourceDictionary>

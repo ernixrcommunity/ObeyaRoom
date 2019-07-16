@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="Hololens.Obeya.Windows10.Controls.StrategyItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hololens.Obeya.Windows10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <StackPanel d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Padding="0,5,0,10">
+            <TextBlock x:Name="textBlock" Margin="0" TextWrapping="Wrap" Text="{Binding Title, FallbackValue=-}" FontSize="18"/>
+            <Grid Margin="0,10,0,0">
+                <ProgressBar x:Name="progressBar" VerticalAlignment="Top" Value="{Binding Status, Converter={StaticResource InverseRatioConverter}, FallbackValue=1}" Maximum="1" Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="TopPosition, BottomPosition" Height="20">
+                    <ProgressBar.RenderTransform>
+                        <CompositeTransform ScaleX="-1"/>
+                    </ProgressBar.RenderTransform>
+                    <ProgressBar.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="{StaticResource ERNIRed}" Offset="0"/>
+                            <GradientStop Color="{StaticResource ERNIOrange}" Offset="0.5"/>
+                            <GradientStop Color="{StaticResource ERNIGreen}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ProgressBar.Background>
+                </ProgressBar>
+                <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Status, Converter={StaticResource DoubleToPercentageConverter}, FallbackValue=-}" FontSize="15" FontWeight="Light" Height="{Binding Height, ElementName=progressBar}"/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

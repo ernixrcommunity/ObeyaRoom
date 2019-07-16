@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hololens.Obeya.Windows10.Styles">
+
+    <DataTemplate x:Key="ContratSignedHeader">
+        <StackPanel Orientation="Horizontal" Visibility="{Binding Group, Converter={StaticResource OfferStatusToVisibilityConverter}, ConverterParameter=contractsigned}">
+            <Image Margin="0,3,0,0" Height="20" Width="20" Source="ms-appx:///Assets/greenDot.png"></Image>
+            <TextBlock Margin="10,0,0,0" Foreground="{StaticResource ERNIGreenBrush}" x:Uid="ContractSignedLabel" FontSize="30" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="NegoationHeader">
+        <StackPanel Orientation="Horizontal" Visibility="{Binding Group, Converter={StaticResource OfferStatusToVisibilityConverter}, ConverterParameter=negotiation}">
+            <Image Margin="0,3,0,0" Height="20" Width="20" Source="ms-appx:///Assets/orangeDot.png"></Image>
+            <TextBlock Margin="10,0,0,0" Foreground="{StaticResource ERNIOrangeBrush}" x:Uid="NegotationLabel" FontSize="30" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="NoContractHeader">
+        <StackPanel Orientation="Horizontal" Visibility="{Binding Group, Converter={StaticResource OfferStatusToVisibilityConverter}, ConverterParameter=nocontract}">
+            <Image Margin="0,3,0,0" Height="20" Width="20" Source="ms-appx:///Assets/redDot.png"></Image>
+            <TextBlock Margin="10,0,0,0" Foreground="{StaticResource ERNIRedLightBrush}" x:Uid="NoContractLabel" FontSize="30" />
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

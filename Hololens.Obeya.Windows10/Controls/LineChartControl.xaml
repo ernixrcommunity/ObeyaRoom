@@ -1,0 +1,45 @@
+﻿<UserControl
+    x:Class="Hololens.Obeya.Windows10.Controls.LineChartControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hololens.Obeya.Windows10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:oxyplotWindows="using:OxyPlot.Windows"
+    xmlns:oxyplotAxes="using:OxyPlot.Axes"
+    xmlns:oxyplotSeries="using:OxyPlot.Series"
+    xmlns:oxyplot="using:OxyPlot"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <oxyplotWindows:PlotView x:Name="CustomerPlot" IsHitTestVisible="False">
+            <oxyplotWindows:PlotView.Model>
+                <oxyplot:PlotModel>
+                    <oxyplot:PlotModel.Axes>
+                        <oxyplotAxes:LinearAxis MajorGridlineStyle="Dot"
+                                                MinorGridlineStyle="None"
+                                                Position="Left"
+                                                Key="ValueAxis" 
+                                                Minimum="0" Maximum="100"/>
+                        <oxyplotAxes:DateTimeAxis MajorGridlineStyle="None"
+                                                  MinorGridlineStyle="None"
+                                                  Position="Bottom"
+                                                  MinorIntervalType="Hours"
+                                                  IntervalType="Days"
+                                                  StringFormat="MM/dd"
+                                                  Key="DateAxis"/>
+                    </oxyplot:PlotModel.Axes>
+                    <oxyplot:PlotModel.Series>
+                        <oxyplotSeries:LineSeries x:Name="MainSerie"
+                                                  XAxisKey="DateAxis"
+                                                  YAxisKey="ValueAxis"
+                                                  DataFieldX="Date"
+                                                  DataFieldY="Value"/>
+                    </oxyplot:PlotModel.Series>
+                </oxyplot:PlotModel>
+            </oxyplotWindows:PlotView.Model>
+        </oxyplotWindows:PlotView>
+    </Grid>
+</UserControl>

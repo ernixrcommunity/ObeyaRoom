@@ -1,0 +1,44 @@
+﻿<ContentDialog
+    x:Class="Hololens.Obeya.Windows10.Controls.EditTaskContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hololens.Obeya.Windows10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="EDIT TASK"
+    PrimaryButtonText="OK"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock Text="Task title:" FontSize="20" Foreground="{StaticResource ERNIGreyBrush}"/>
+                <TextBlock Text="{Binding Title}" FontSize="18" Foreground="{StaticResource ERNIGreyLightBrush}" TextWrapping="WrapWholeWords"/>
+                <TextBlock Text="Task description:" FontSize="20" Foreground="{StaticResource ERNIGreyBrush}"/>
+                <TextBlock Text="{Binding LongDescription}" FontSize="18" Foreground="{StaticResource ERNIGreyLightBrush}" TextWrapping="WrapWholeWords"/>
+                <TextBlock Text="Task due date:" FontSize="20" Foreground="{StaticResource ERNIGreyBrush}"/>
+                <TextBlock Text="{Binding DueDate}" FontSize="18" Foreground="{StaticResource ERNIGreyLightBrush}"/>
+                <TextBlock Text="Task status:" FontSize="20" Foreground="{StaticResource ERNIGreyBrush}"/>
+                <RadioButton x:Name="TodoRadio" Content="TODO" FontSize="18" Foreground="{StaticResource ERNIGreyLightBrush}"/>
+                <RadioButton x:Name="WipRadio" Content="WIP" FontSize="18" Foreground="{StaticResource ERNIGreyLightBrush}"/>
+                <RadioButton x:Name="DoneRadio" Content="DONE" FontSize="18" Foreground="{StaticResource ERNIGreyLightBrush}"/>
+                <TextBlock Text="Task assigned to:" FontSize="20" Foreground="{StaticResource ERNIGreyBrush}"/>
+                <ItemsControl ItemsSource="{Binding People}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding }" FontSize="18" Foreground="{StaticResource ERNIGreyLightBrush}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ContentDialog>

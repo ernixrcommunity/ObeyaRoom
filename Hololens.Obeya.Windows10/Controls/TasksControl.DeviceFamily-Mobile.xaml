@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="Hololens.Obeya.Windows10.Controls.TasksControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hololens.Obeya.Windows10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Hololens.Obeya.Windows10.Controls"
+    DataContext="{Binding TasksVM, Source={StaticResource Locator}}"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20" Padding="10" FontWeight="Bold">
+                <Span Foreground="{StaticResource ERNIGreyBrush}">
+                    <Run Text="TITLE" x:Uid="TasksText"/>
+                </Span>
+        </TextBlock>
+
+        <Button Foreground="{StaticResource ERNIGreyBrush}" Background="White" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,12,0" Tapped="Button_Tapped">
+            <Button.Content>
+                <Grid>
+                    <Ellipse StrokeThickness="1" Stroke="{StaticResource ERNIGreyBrush}"/>
+                    <FontIcon Glyph="" Margin="5" FontSize="10" Foreground="{StaticResource ERNIGreyLightBrush}" FontWeight="Bold"/>
+                </Grid>
+            </Button.Content>
+        </Button>
+
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1" Text="TODO" x:Uid="TaskTodo" Foreground="{StaticResource ERNIGreyLightBrush}" FontSize="16" Padding="0,0,0,6" TextLineBounds="Tight" FontWeight="Light" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Row="3" Text="WiP" x:Uid="TaskWIP" Foreground="{StaticResource ERNIGreyLightBrush}" FontSize="16" Padding="0,0,0,6" TextLineBounds="Tight" FontWeight="Light" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Row="5" Text="DONE" x:Uid="TaskDone" Foreground="{StaticResource ERNIGreyLightBrush}" FontSize="16" Padding="0,0,0,6" TextLineBounds="Tight" FontWeight="Light" HorizontalAlignment="Center"/>
+
+                <Border Grid.Row="2" BorderThickness="0,0.5,0.5,0" BorderBrush="{StaticResource ERNIGreyLightBrush}">
+                    <controls:BindableDragableCanvas ItemsSource="{Binding TodoTasks, Mode=OneWay}" AttachedViewModel="{Binding }" VerticalAlignment="Top" Height="Auto"/>
+                </Border>
+
+                <Border Grid.Row="4" BorderThickness="0,0.5,0.5,0" BorderBrush="{StaticResource ERNIGreyLightBrush}">
+                    <controls:BindableDragableCanvas ItemsSource="{Binding WipTasks, Mode=OneWay}" AttachedViewModel="{Binding }" VerticalAlignment="Top" Height="Auto"/>
+                </Border>
+
+                <Border Grid.Row="6" BorderThickness="0,0.5,0,0" BorderBrush="{StaticResource ERNIGreyLightBrush}">
+                    <controls:BindableDragableCanvas ItemsSource="{Binding DoneTasks, Mode=OneWay}" AttachedViewModel="{Binding }" VerticalAlignment="Top" Height="Auto"/>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
